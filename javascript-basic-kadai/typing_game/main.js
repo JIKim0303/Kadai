@@ -25,6 +25,14 @@ const textLists = [
     'programming'
 ];
 
+const id = setInterval(() => {
+    time--;
+    count.textContent = time;
+    if(time === 0) {
+        gameOver();  //gameOVerを実行する時にidを渡してあげるという指示
+    }
+}, 1000);
+
 //新しいテキストを表示する時の指示
 const createText = () => {
     typed = '';
@@ -56,7 +64,21 @@ const keyPress = e => {
 };
 
 
-const rankCheck = score => {
+// const rankCheck = score1 => {
+//     let text ='';
+//     if(score1 < 100) {
+//         text = `あなたのランクはCです\nBランクまであと${100 - score1}文字です。`;
+//     } else if(score1 < 200) {
+//         text = `あなたのランクはBです\nAランクまであと${200 - score1}文字です。`;
+//     } else if(score1 < 300) {
+//         text = `あなたのランクはAです\nSランクまであと${300 - score1}文字です。`;
+//     } else if(score1 >= 300) {
+//         text = `あなたのランクはSです。\nおめでとうございます！`;
+//     }
+//     return `${score1}文字打てました！\n${score1}\n【OK】リトライ / 【キャンセル】終了`;
+// };
+
+const rankCheck = (score) => {
     let text ='';
     if(score < 100) {
         text = `あなたのランクはCです\nBランクまであと${100 - score}文字です。`;
@@ -70,25 +92,25 @@ const rankCheck = score => {
     return `${score}文字打てました！\n${score}\n【OK】リトライ / 【キャンセル】終了`;
 };
 
-const gameOver = id => { //idを抜いてみた⇒するとid is not defined というエラーが出てカウントダウンも0になったら-1というようにカウントが続いた。
-    clearInterval(id);
-    const result = confirm(rankCheck(score));
-    if(result == true) {
-        window.location.reload();
-    }
-};
+//この定数の引数idは定数名timerの中で定義した定数名idの中身にあるデータを受け取っている。もしidをグローバル変数にした場合は引数に設定する必要はないため、グローバル変数にした状態で実行してみた。
+    const gameOver = (id) => { //idを抜いてみた⇒するとid is not defined というエラーが出てカウントダウンも0になったら-1というようにカウントが続いた。
+            clearInterval(id);
+            const result = confirm(rankCheck(score));
+                if(result == true) {
+                    window.location.reload();
+                }
+    };
 
 const timer = () => {
     let time = count.textContent;
-    const id = setInterval(() => {
-    time--;
-    count.textContent = time;
-        if(time <= 0) {
-        gameOver(id);
-        // rankCheck();  //rankCheckを加えてみた。ここに加えても動作には変化なし
-        }
-    }, 1000);
-    };
+    // const id = setInterval(() => {
+    //     time--;
+    //     count.textContent = time;
+    //     if(time === 0) {
+    //         gameOver(id);
+    //     }
+    // }, 1000);
+};
 
 
 start.addEventListener('click', () => {
