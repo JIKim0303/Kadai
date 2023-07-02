@@ -93,4 +93,6 @@ const result = () => {
 const gameOver = (id) => { 
     clearInterval(id);
     confirm(result());
+    untyped = 'タイムアップ！';
+    untypedfield.text = untyped;
 };
