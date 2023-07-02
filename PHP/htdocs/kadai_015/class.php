@@ -15,7 +15,7 @@
                 $this->name = $name;
                 $this->price = $price;
             }
-            public function show_price(int $price) {
+            public function show_price() {
                 echo $this->price . '<br>';
             }
         }
@@ -31,7 +31,7 @@
                 $this->height = $height;
                 $this->weight = $weight;
             }
-            public function show_height(string $height) {
+            public function show_height() {
                 echo $this->height . '<br>';
             }
         }
