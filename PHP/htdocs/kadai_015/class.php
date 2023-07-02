@@ -15,12 +15,9 @@
                 $this->name = $name;
                 $this->price = $price;
             }
-            public function show_price(int $price) {
-                echo $this->price . '<br>';
-            }
         }
         $food = new Food('ランチセット', 600);
-        $food->show_price(600);
+        print_r($food);
 
         class Animal {
             private $name;
@@ -31,12 +28,9 @@
                 $this->height = $height;
                 $this->weight = $weight;
             }
-            public function show_height(string $height) {
-                echo $this->height . '<br>';
-            }
         }
         $animal = new Animal('ゴリラ', '200cm', '250kg');
-        $animal->show_height('200cm');
+        print_r($animal);
         ?>
     </p>
 </body>
