@@ -6,7 +6,7 @@
     <title>PHP Kadai_015</title></title>
 </head>
 <body>
-    <p>
+<p>
         <?php
         class Food {
             private $name;
@@ -15,22 +15,32 @@
                 $this->name = $name;
                 $this->price = $price;
             }
+            public function show_price(int $price) {
+                echo $this->price . '<br>';
+            }
         }
-        $food = new Food('ランチセット', 600);
-        print_r($food);
+        $food = new Food('potato', 250);
+        print_r($food) . '<br>';
 
         class Animal {
             private $name;
             private $height;
             private $weight;
-            public function __construct(string $name, string $height, string $weight) {
+            public function __construct(string $name, int $height, int $weight) {
                 $this->name = $name;
                 $this->height = $height;
                 $this->weight = $weight;
             }
+            public function show_height(string $height) {
+                echo $this->height . '<br>';
+            }
         }
-        $animal = new Animal('ゴリラ', '200cm', '250kg');
-        print_r($animal);
+        $animal = new Animal('dog', 60, 5000);
+        print_r($animal) . '<br>';
+
+        $food->show_price(250) . '<br>';
+
+        $animal->show_height(60) . '<br>';
         ?>
     </p>
 </body>
