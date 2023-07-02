@@ -21,6 +21,22 @@
         }
         $food = new Food('ランチセット', 600);
         $food->show_price(600);
+
+        class Animal {
+            private $name;
+            private $height;
+            private $weight;
+            public function __construct(string $name, string $height, string $weight) {
+                $this->name = $name;
+                $this->height = $height;
+                $this->weight = $weight;
+            }
+            public function show_height(string $height) {
+                echo $this->height . '<br>';
+            }
+        }
+        $animal = new Animal('ゴリラ', '200cm', '250kg');
+        $animal->show_height('200cm');
         ?>
     </p>
 </body>
